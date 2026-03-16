@@ -1,0 +1,51 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <jsp:include page = "dbconnect.jsp"></jsp:include>
+<!DOCTYPE html>
+<html>
+<head>
+
+<link href="style.css" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<jsp:include page = "header.jsp"></jsp:include>
+	<form style = "display:flex; align-items:center; justify-content:center; text-align:center">
+	
+		<table border = "1">
+			<tr>
+				<td>선수번호</td>
+				<td>선수이름</td>
+				<td>선수포지션</td>
+				<td>선수등록일</td>
+				<td>선수등급</td>
+				<td>삭제</td>
+			</tr>
+<%
+request.setCharacterEncoding("UTF-8");
+try{
+	String query = "select * from giants_player";
+	PreparedStatement pstmt = con.prepareStatement(query);
+	ResultSet rs = pstmt.executeQuery(query);
+	while(rs.next()){
+		%>
+		<tr>
+			<td> <%=rs.getString(1) %></td>
+			<td> <%=rs.getString(2) %></td>
+			<td> <%=rs.getString(3) %></td>
+			<td> <%=rs.getInt(4) %></td>
+			<td> <%=rs.getInt(5) %></td>
+			<td> <%=rs.getInt(6) %></td>
+			<td> <%=rs.getInt(7) %></td>
+			<td> <%=rs.getInt(8) %></td>
+		</tr>
+		<%
+	}
+} catch(Exception e){}
+%>
+		</table>
+	</form>
+
+</body>
+</html>
