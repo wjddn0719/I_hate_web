@@ -16,7 +16,7 @@ String pid = request.getParameter("pid");
 System.out.println("PID : "+ pid);
 String query = "delete from giants_player where pid =" + pid;
 PreparedStatement pstmt = con.prepareStatement(query);
-pstmt.executeUpdate();
+pstmt.executeUpdate(query);
 %>
 
 <jsp:forward page = "list.jsp"></jsp:forward>

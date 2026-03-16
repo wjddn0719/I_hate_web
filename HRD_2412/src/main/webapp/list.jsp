@@ -36,7 +36,7 @@ try{
 		
 		%>
 		<tr>
-			<td> <%=rs.getInt(1) %></td>
+			<td><a href = "update.jsp?pid = <%=rs.getInt(1) %>"> <%=rs.getInt(1) %></a></td>
 			<td> <%=rs.getString(2) %></td>
 			<td> <%=rs.getString(3) %></td>
 			<td> <%=day %></td>
